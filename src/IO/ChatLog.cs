@@ -137,7 +137,7 @@ namespace CO2_CORE_DLL.IO
 
             lock (Entries)
             {
-                using (StreamReader Stream = new StreamReader(Path, Encoding.GetEncoding("Windows-1252")))
+                using (StreamReader Stream = new StreamReader(Path, Encoding.UTF8))
                 {
                     String Line = null;
                     Int32 LineC = 0;
@@ -152,10 +152,10 @@ namespace CO2_CORE_DLL.IO
 
                         try
                         {
-                            Buffer = Encoding.GetEncoding("Windows-1252").GetBytes(Parts[0]);
+                            Buffer = Encoding.UTF8.GetBytes(Parts[0]);
                             Kernel.memcpy(pInfo->Sender, Buffer, MAX_NAMESIZE);
 
-                            Buffer = Encoding.GetEncoding("Windows-1252").GetBytes(Parts[1]);
+                            Buffer = Encoding.UTF8.GetBytes(Parts[1]);
                             Kernel.memcpy(pInfo->Txt, Buffer, MAX_TXTSIZE);
 
                             Entries.Add((IntPtr)pInfo);
@@ -208,7 +208,7 @@ namespace CO2_CORE_DLL.IO
         /// </summary>
         public void SaveToTxt(String Path)
         {
-            using (StreamWriter Stream = new StreamWriter(Path, false, Encoding.GetEncoding("Windows-1252")))
+            using (StreamWriter Stream = new StreamWriter(Path, false, Encoding.UTF8))
             {
                 IntPtr[] Pointers = new IntPtr[0];
 

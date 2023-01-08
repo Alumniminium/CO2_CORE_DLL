@@ -71,7 +71,7 @@ namespace CO2_CORE_DLL.IO
                 public UInt32 Offset;
             }
 
-            private Encoding Encoding = Encoding.GetEncoding("Windows-1252");
+            private Encoding Encoding = Encoding.UTF8;
 
             private TPD TpdFile = null;
             private Header* pHeader = null;
@@ -392,7 +392,7 @@ namespace CO2_CORE_DLL.IO
                 pHeader->Unknown3 = TPI_UNKNOWN_3;
                 pHeader->Reserved = 0x00;
 
-                Encoding Encoding = Encoding.GetEncoding("Windows-1252");
+                Encoding Encoding = Encoding.UTF8;
                 Byte[] Buffer = new Byte[Kernel.MAX_BUFFER_SIZE];
                 Byte[] Tmp = new Byte[Kernel.MAX_BUFFER_SIZE];
 

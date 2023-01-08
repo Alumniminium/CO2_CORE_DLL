@@ -34,7 +34,7 @@ namespace CO2_CORE_DLL
         /// </summary>
         public static Byte* ToPointer(this String Str)
         {
-            Byte[] Buffer = Encoding.GetEncoding("Windows-1252").GetBytes(Str + "\0");
+            Byte[] Buffer = Encoding.ASCII.GetBytes(Str + "\0");
             Byte* ptr = (Byte*)Kernel.malloc(Buffer.Length);
 
             fixed (Byte* pBuffer = Buffer)
@@ -48,7 +48,7 @@ namespace CO2_CORE_DLL
         /// </summary>
         public static Byte* ToPointer(this String Str, Byte* ptr)
         {
-            Byte[] Buffer = Encoding.GetEncoding("Windows-1252").GetBytes(Str + "\0");
+            Byte[] Buffer = Encoding.ASCII.GetBytes(Str + "\0");
             fixed (Byte* pBuffer = Buffer)
                 Kernel.memcpy(ptr, pBuffer, Buffer.Length);
             return ptr;

@@ -164,7 +164,7 @@ namespace CO2_CORE_DLL.IO.DBC
 
             lock (Entries)
             {
-                Encoding Encoding = Encoding.GetEncoding("Windows-1252");
+                Encoding Encoding = Encoding.UTF8;
                 Ini Ini = new Ini(Path);
 
                 using (StreamReader Stream = new StreamReader(Path, Encoding))
@@ -246,7 +246,7 @@ namespace CO2_CORE_DLL.IO.DBC
         /// </summary>
         public void SaveToTxt(String Path)
         {
-            using (StreamWriter Stream = new StreamWriter(Path, false, Encoding.GetEncoding("Windows-1252")))
+            using (StreamWriter Stream = new StreamWriter(Path, false, Encoding.UTF8))
             {
                 IntPtr[] Pointers = new IntPtr[0];
 

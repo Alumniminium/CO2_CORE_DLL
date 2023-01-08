@@ -53,7 +53,7 @@ namespace CO2_CORE_DLL.Net
         /// </summary>
         public Msg(Int32 Length)
         {
-            this.Encoding = Encoding.GetEncoding("Windows-1252");
+            this.Encoding = Encoding.UTF8;
             this.pBuffer = (Byte*)Kernel.calloc(Length);
             this.Length = Length;
             this.Position = 0;

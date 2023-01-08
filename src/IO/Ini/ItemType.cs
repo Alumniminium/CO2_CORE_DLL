@@ -170,7 +170,7 @@ namespace CO2_CORE_DLL.IO
 
             lock (Entries)
             {
-                using (StreamReader Stream = new StreamReader(Path, Encoding.GetEncoding("Windows-1252")))
+                using (StreamReader Stream = new StreamReader(Path, true))
                 {
                     Entries = new Dictionary<Int32, IntPtr>();
                     Byte* pStr = stackalloc Byte[Kernel.MAX_BUFFER_SIZE];
@@ -185,6 +185,9 @@ namespace CO2_CORE_DLL.IO
                             continue;
                         }
                         LineC++;
+
+                        if(Line == String.Empty)
+                            continue;
 
                         String[] Parts = Line.Split(' ');
                         Entry* pEntry = (Entry*)Kernel.calloc(sizeof(Entry));
@@ -290,7 +293,7 @@ namespace CO2_CORE_DLL.IO
         /// </summary>
         public void SaveToTxt(String Path)
         {
-            using (StreamWriter Stream = new StreamWriter(Path, false, Encoding.GetEncoding("Windows-1252")))
+            using (StreamWriter Stream = new StreamWriter(Path))
             {
                 IntPtr[] Pointers = new IntPtr[0];
 

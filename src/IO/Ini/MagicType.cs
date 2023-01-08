@@ -236,7 +236,7 @@ namespace CO2_CORE_DLL.IO
 
             lock (Entries)
             {
-                using (StreamReader Stream = new StreamReader(Path, Encoding.GetEncoding("Windows-1252")))
+                using (StreamReader Stream = new StreamReader(Path, Encoding.UTF8))
                 {
                     Entries = new Dictionary<Int32, IntPtr>();
 
@@ -365,7 +365,7 @@ namespace CO2_CORE_DLL.IO
         /// </summary>
         public void SaveToTxt(String Path)
         {
-            using (StreamWriter Stream = new StreamWriter(Path, false, Encoding.GetEncoding("Windows-1252")))
+            using (StreamWriter Stream = new StreamWriter(Path, false, Encoding.UTF8))
             {
                 IntPtr[] Pointers = new IntPtr[0];
 

@@ -106,7 +106,7 @@ namespace CO2_CORE_DLL.IO
 
             lock (Entries)
             {
-                String[] Lines = File.ReadAllLines(Path, Encoding.GetEncoding("Windows-1252"));
+                String[] Lines = File.ReadAllLines(Path, Encoding.UTF8);
 
                 Entries = new Int32[Lines.Length];
                 for (Int32 i = 0; i < Lines.Length; i++)
@@ -151,7 +151,7 @@ namespace CO2_CORE_DLL.IO
         /// </summary>
         public void SaveToTxt(String Path)
         {
-            using (StreamWriter Stream = new StreamWriter(Path, false, Encoding.GetEncoding("Windows-1252")))
+            using (StreamWriter Stream = new StreamWriter(Path, false, Encoding.UTF8))
             {
                 lock (Entries)
                 {

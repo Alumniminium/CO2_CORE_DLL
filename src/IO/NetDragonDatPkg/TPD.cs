@@ -52,7 +52,7 @@ namespace CO2_CORE_DLL.IO
                 public Int32 Unknown2;
             };
 
-            private Encoding Encoding = Encoding.GetEncoding("Windows-1252");
+            private Encoding Encoding = Encoding.UTF8;
 
             private Header* pHeader = null;
             private String Filename = null;

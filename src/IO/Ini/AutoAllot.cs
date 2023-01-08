@@ -181,7 +181,7 @@ namespace CO2_CORE_DLL.IO
         /// </summary>
         public void SaveToTxt(String Path)
         {
-            using (StreamWriter Stream = new StreamWriter(Path, false, Encoding.GetEncoding("Windows-1252")))
+            using (StreamWriter Stream = new StreamWriter(Path, false, Encoding.UTF8))
             {
                 lock (Entries)
                 {
